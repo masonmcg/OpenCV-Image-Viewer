@@ -1,0 +1,11 @@
+CC = g++
+CFLAGS = -Wall -std=c++11 $(shell pkg-config --cflags opencv4)
+LIBS = $(shell pkg-config --libs opencv4)
+
+all: image_viewer
+
+image_viewer: image_viewer.cpp
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+
+clean:
+	rm -f image_viewer
